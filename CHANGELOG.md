@@ -1,3 +1,5 @@
 # Noteable changes will be marked in this doc
 
-## V0.01 
+## MR1 Character Controller 
+Add simple dash and character movement
+Time: 1hr24min
