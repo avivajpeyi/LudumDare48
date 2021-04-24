@@ -39,12 +39,17 @@ The main target platform is WebGL.
 - [ ] Die Effect
 
 ### Enemy
-- [ ] Shatter on collision with player
+- [x] Shatter on collision with player
 - [x] Attack player
 
 ### Arena
 - [x] Generate Arena, obstacles, enemies
 - [ ] Area transition animation
+
+### Game
+- [ ] create round controller
+- [ ] keep score
+- [ ] restart option
 
 ### UI 
 - [ ] Dash effect cool-down bar

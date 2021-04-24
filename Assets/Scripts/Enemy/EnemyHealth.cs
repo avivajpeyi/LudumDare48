@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(name + " triggered OnTriggerEnter!");
-        if (other == player)
+        if (other.transform == player)
         {
             if (playerDash.isDashing)
                 Die();
@@ -40,5 +40,6 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Debug.Log(name + " has died ");
+        Destroy(gameObject);
     }
 }
