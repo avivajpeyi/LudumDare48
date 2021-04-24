@@ -668,11 +668,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 6693990136571726229, guid: 8d7cd79d22f7d4a4ab6cc78fac95b100,
-        type: 3}
-      propertyPath: rateOfShots
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d7cd79d22f7d4a4ab6cc78fac95b100, type: 3}
 --- !u!1001 &6880142828752996683

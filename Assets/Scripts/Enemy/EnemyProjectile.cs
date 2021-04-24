@@ -17,6 +17,7 @@ public class EnemyProjectile : MonoBehaviour
 
     Transform player;
     private ThirdPersonHealth plyaerHealth;
+    private ThirdPersonDash playerDash;
     Vector3 target;
 
 
@@ -26,6 +27,7 @@ public class EnemyProjectile : MonoBehaviour
         if (player != null)
         {
             plyaerHealth = player.GetComponent<ThirdPersonHealth>();
+            playerDash = player.GetComponent<ThirdPersonDash>();
         }
 
         target = player.position;
@@ -53,7 +55,10 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            plyaerHealth.TakeDamage(damageAmount);
+            if (playerDash.isDashing)
+            {
+                plyaerHealth.TakeDamage(damageAmount);
+            }
             DestroyProjectile();
         }
         else if (other.CompareTag("Obstacle"))

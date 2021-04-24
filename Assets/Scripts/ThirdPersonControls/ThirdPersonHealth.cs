@@ -34,5 +34,6 @@ public class ThirdPersonHealth : MonoBehaviour
         Debug.Log(name + " has died");
         isDeaad = true;
         // TODO: death anim
+        Destroy(gameObject);
     }
 }
