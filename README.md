@@ -40,10 +40,10 @@ The main target platform is WebGL.
 
 ### Enemy
 - [ ] Shatter on collision with player
-- [ ] Attack player
+- [x] Attack player
 
 ### Arena
-- [ ] Generate Arena, obstacles, enemies
+- [x] Generate Arena, obstacles, enemies
 - [ ] Area transition animation
 
 ### UI 
