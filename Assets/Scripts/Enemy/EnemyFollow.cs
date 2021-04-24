@@ -20,47 +20,44 @@ public class EnemyFollow : MonoBehaviour
     public float retreatDist = 0.0f;
 
     [SerializeField] private EnemyMovementStates currentState;
+    private EnemySight mySight;
 
-    
     void OnDrawGizmos()
     {
-        Gizmos.color = new Color(r:10, 0, 0 , 0.5f);
+        Gizmos.color = new Color(r: 10, 0, 0, 0.5f);
         Gizmos.DrawSphere(this.transform.position, stoppingDist);
-        Gizmos.color = new Color(r:00, 10, 0 , 0.5f);
+        Gizmos.color = new Color(r: 00, 10, 0, 0.5f);
         Gizmos.DrawSphere(this.transform.position, retreatDist);
     }
 
-    
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         nav = GetComponent<NavMeshAgent>();
+        mySight = GetComponent<EnemySight>();
     }
-    
-    
+
 
     void UpdateState()
     {
         float dist = Vector3.Distance(player.transform.position, transform.position);
 
-        if (dist > stoppingDist)
+        currentState = EnemyMovementStates.JustRight;
+        if (mySight.playerVisible)
         {
-            // Too far! move closer
-            currentState = EnemyMovementStates.TooFar;
-        }
-        else if (dist < stoppingDist && dist  > retreatDist)
-        {
-            // Just right
-            nav.ResetPath();
-            currentState = EnemyMovementStates.JustRight;
-        }
-        else if (dist < retreatDist)
-        {
-            // Too close! run back
-            Vector3 dirToPlayer = transform.position - player.transform.position;
-            Vector3 newPos = transform.position + dirToPlayer;
-            nav.SetDestination(newPos);
-            currentState = EnemyMovementStates.TooClose;
+            if (dist > stoppingDist)
+            {
+                currentState = EnemyMovementStates.TooFar;
+            }
+            else if (dist < stoppingDist && dist > retreatDist)
+            {
+                currentState = EnemyMovementStates.JustRight;
+            }
+            else if (dist < retreatDist)
+            {
+                currentState = EnemyMovementStates.TooClose;
+            }
         }
     }
 
@@ -69,7 +66,6 @@ public class EnemyFollow : MonoBehaviour
         UpdateState();
         AdjustMovement();
         CorrectDistances();
-
     }
 
 
@@ -77,7 +73,6 @@ public class EnemyFollow : MonoBehaviour
     {
         if (retreatDist > stoppingDist)
             stoppingDist = retreatDist + 2;
-
     }
 
     void AdjustMovement()

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7085973369501121308}
   - component: {fileID: 3899250197191259448}
   - component: {fileID: 5279483049697139489}
+  - component: {fileID: 2585660328253376264}
   m_Layer: 0
   m_Name: FollowEnemy
   m_TagString: Untagged
@@ -109,8 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bca80eae7b94bc393a332eab484147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoppingDist: 7.59
-  retreatDist: 4.51
+  stoppingDist: 0
+  retreatDist: 0
   currentState: 0
 --- !u!114 &7085973369501121308
 MonoBehaviour:
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4731453345378551705}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73c9bae9da84d4e0eb59f5c752dffd2b, type: 3}
   m_Name: 
@@ -139,10 +140,6 @@ MonoBehaviour:
   rateOfShots: 2
   projectile: {fileID: 6685037534604133024, guid: 49fa31732244f4b6db77f71502ca1173,
     type: 3}
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
-  playerVisible: 0
 --- !u!195 &5279483049697139489
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -165,3 +162,19 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2585660328253376264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4731453345378551705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393cc17b1eb9541e9b1aefda7f24e8b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  playerVisible: 0
