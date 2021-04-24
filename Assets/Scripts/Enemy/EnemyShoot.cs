@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+    <<<<<<< HEAD
 
 public class EnemyShoot : MonoBehaviour
 {
@@ -11,15 +12,9 @@ public class EnemyShoot : MonoBehaviour
 
     public bool shootOnlyIfEnemyVisible = true;
 
-    
+
     Transform player;
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        if (player != null)
-            Gizmos.DrawLine(transform.position, player.transform.position);
-    }
 
     void Start()
     {
@@ -31,7 +26,7 @@ public class EnemyShoot : MonoBehaviour
     void Update()
     {
         if (shootOnlyIfEnemyVisible)
-        {            
+        {
             if (mySight.playerVisible)
                 Shoot();
         }
@@ -39,8 +34,6 @@ public class EnemyShoot : MonoBehaviour
         {
             Shoot();
         }
-
-
     }
 
 
