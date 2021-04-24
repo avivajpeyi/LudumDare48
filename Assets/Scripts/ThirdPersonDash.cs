@@ -8,7 +8,8 @@ public class ThirdPersonDash : MonoBehaviour
 {
     public float dashSpeed = 20.0f;
     public float dashTime = 0.25f;
-
+    public bool isDashing;
+    
     private ThirdPersonMovement MovementController;
 
     // Start is called before the first frame update
@@ -29,13 +30,17 @@ public class ThirdPersonDash : MonoBehaviour
 
     IEnumerator Dash()
     {
-        Debug.Log("DASH");
         float startTime = Time.time;
+        Debug.Log("Start Dash @" + startTime );
         while (Time.time < startTime + dashTime)
         {
+            // TODO: dash animation
+            isDashing = true;
             MovementController.controller.Move(
                 MovementController.moveDir * dashSpeed * Time.deltaTime);
             yield return null;
         }
+        isDashing = false;
+        Debug.Log("Complete Dash @" + Time.time );
     }
 }
