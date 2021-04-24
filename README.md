@@ -28,8 +28,8 @@ The main target platform is WebGL.
 ## BACKLOG
 
 ### Character Controller
-- [ ] Move with keys
-- [ ] Dash
+- [x] Move with keys 
+- [x] Dash
 - [ ] Wall bounce
 
 ### Character FX
