@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4862385692141925405}
   - component: {fileID: 1670886450532891193}
   - component: {fileID: 7523466477435261984}
+  - component: {fileID: 4543804837021690990}
   m_Layer: 0
   m_Name: HomingTurretEnemy
   m_TagString: Untagged
@@ -139,10 +140,6 @@ MonoBehaviour:
   rateOfShots: 5
   projectile: {fileID: 6685037534604133024, guid: 23906ad9786b647ff9758868bb428698,
     type: 3}
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 0
-  playerVisible: 0
 --- !u!195 &7523466477435261984
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -165,3 +162,19 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4543804837021690990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955170281001126040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393cc17b1eb9541e9b1aefda7f24e8b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 512
+  playerVisible: 0

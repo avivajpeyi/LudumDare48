@@ -8,11 +8,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class EnemyProjectile : MonoBehaviour
 {
+    public float maxLifetime = 7.5f;
     public float speed = 5;
     public float damageAmount = 20;
+    public bool aimAtPlayer = true;
     public bool isHoming = false;
-
-    public float maxLifetime = 7.5f;
 
 
     Transform player;
@@ -29,8 +29,10 @@ public class EnemyProjectile : MonoBehaviour
             plyaerHealth = player.GetComponent<ThirdPersonHealth>();
             playerDash = player.GetComponent<ThirdPersonDash>();
         }
-
-        target = player.position;
+        if (aimAtPlayer)
+            target = player.position;
+        else
+            target = transform.root.position + transform.root.forward * 100;
 
         StartCoroutine(BeginDecay());
     }
@@ -55,10 +57,11 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (playerDash.isDashing)
+            if (!playerDash.isDashing)
             {
                 plyaerHealth.TakeDamage(damageAmount);
             }
+
             DestroyProjectile();
         }
         else if (other.CompareTag("Obstacle"))

@@ -1,63 +1,52 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+    <<<<<<< HEAD
 
 public class EnemyShoot : MonoBehaviour
 {
-    float timeBwShots;
-    public float rateOfShots = 2;
+    float timeSinceLastShot;
+    public float shotEveryNseconds = 2;
     public GameObject projectile;
-    public LayerMask obstacleMask;
+    private EnemySight mySight;
 
-    public bool playerVisible;
+    public bool shootOnlyIfEnemyVisible = true;
+
 
     Transform player;
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        if (player != null)
-            Gizmos.DrawLine(transform.position, player.transform.position);
-    }
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        mySight = GetComponent<EnemySight>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerVisible = PlayerIsVisible();
-        if (playerVisible)
-            Shoot();
-    }
-
-    bool PlayerIsVisible()
-    {
-        Transform target = player.transform;
-        Vector3 dirToTarget = (target.position - transform.position).normalized;
-        float dstToTarget = Vector3.Distance(transform.position, target.position);
-        if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+        if (shootOnlyIfEnemyVisible)
         {
-            return true;
+            if (mySight.playerVisible)
+                Shoot();
         }
-
-        return false;
+        else
+        {
+            Shoot();
+        }
     }
 
 
     void Shoot()
     {
-        if (timeBwShots <= 0)
+        if (timeSinceLastShot <= 0)
         {
-            // Instantiate shot
             Instantiate(projectile, transform.position, Quaternion.identity);
-            timeBwShots = rateOfShots;
+            timeSinceLastShot = shotEveryNseconds;
         }
         else
         {
-            timeBwShots -= Time.deltaTime;
+            timeSinceLastShot -= Time.deltaTime;
         }
     }
 }
