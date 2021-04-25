@@ -11,7 +11,11 @@ public class EnemyHealth : MonoBehaviour
     private ThirdPersonDash playerDash;
     private ThirdPersonHealth playerHealth;
     NavMeshAgent nav;
+    public bool isDead=false;
 
+    public ParticleSystem DeathfX;
+    
+    
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -25,7 +29,6 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(name + " triggered OnTriggerEnter!");
         if (other.transform == player)
         {
             if (playerDash.isDashing)
@@ -40,6 +43,10 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Debug.Log(name + " has died ");
-        Destroy(gameObject);
+        isDead = true;
+        this.GetComponent<Renderer>().enabled = false;
+        this.GetComponent<Collider>().enabled = false;
+//        Destroy(gameObject);
+        Instantiate(DeathfX, transform.position, Quaternion.identity);
     }
 }

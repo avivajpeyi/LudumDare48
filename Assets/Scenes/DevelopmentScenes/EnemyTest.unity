@@ -128,6 +128,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 52883568, guid: 84776c7cd50a44e2abe7505610b2906c, type: 3}
+      propertyPath: m_Autodestruct
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 579580713500776816, guid: 84776c7cd50a44e2abe7505610b2906c,
+        type: 3}
+      propertyPath: DeathFx
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4886638155003570210, guid: 84776c7cd50a44e2abe7505610b2906c,
         type: 3}
       propertyPath: m_Enabled

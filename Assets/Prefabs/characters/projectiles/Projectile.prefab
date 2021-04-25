@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3829281265209212661}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c381c697ae8164017a3232a2f5ebc08c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,10 +107,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688303a11ce3d4929a14f75065730451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLifetime: 7.5
   speed: 5
   damageAmount: 20
+  aimAtPlayer: 1
   isHoming: 0
-  maxLifetime: 7.5
+  bulletFx: {fileID: 8796476225740327669, guid: 1a84dc78213a54a0e8f339f48e5b33b8,
+    type: 3}
 --- !u!54 &3829281265209212661
 Rigidbody:
   m_ObjectHideFlags: 0

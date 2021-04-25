@@ -21,22 +21,29 @@ public class ThirdPersonMovement : MonoBehaviour
     //Dash & Movement
     public Vector3 moveDir;
 
+    private PauseHandler myPause;
+
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         cam = FindObjectOfType<Camera>().transform;
+        myPause = GetComponent<PauseHandler>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 dir = GetUserDirections();
-
-        if (dir.magnitude >= 0.1f)
+        if (!myPause.isPaused)
         {
-            MoveCharacter(dir);
+            Vector3 dir = GetUserDirections();
+
+            if (dir.magnitude >= 0.1f)
+            {
+                MoveCharacter(dir);
+            }
         }
     }
 

@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 6693990136571726229}
   - component: {fileID: 2575287308727330700}
   - component: {fileID: -1054453300631583815}
+  - component: {fileID: -4463936515313175241}
   m_Layer: 0
   m_Name: TurretEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918896cc183044bf5a0b83c2ef6b269e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
+  DeathfX: {fileID: 1879464666513266866, guid: 6c5b41c97931449a5890c513790283c6, type: 3}
 --- !u!114 &6693990136571726229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,9 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c9bae9da84d4e0eb59f5c752dffd2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rateOfShots: 0.2
+  shotEveryNseconds: 2
   projectile: {fileID: 6685037534604133024, guid: 49fa31732244f4b6db77f71502ca1173,
     type: 3}
+  shootOnlyIfEnemyVisible: 1
 --- !u!195 &2575287308727330700
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -178,3 +182,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   playerVisible: 0
+--- !u!114 &-4463936515313175241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3121065232151624500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f72ed845ef9d44a6690d89bc0e380f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPaused: 1

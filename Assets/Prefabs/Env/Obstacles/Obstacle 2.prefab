@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 2730411576737743255}
   - component: {fileID: 2730411576737743254}
   - component: {fileID: 2730411576737743249}
-  - component: {fileID: -7070584028886753845}
   - component: {fileID: -4116117255931792660}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Obstacle 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2730411576737743251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.2771427, y: 0.5, z: 0.12791364}
-  m_LocalScale: {x: 5, y: 2, z: 5}
+  m_LocalScale: {x: 5, y: 1.5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,21 +94,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-7070584028886753845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2730411576737743251}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8065f70e56044db3bc98e97a27f467de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  overlapingSphereRadius: 0
-  overlapping: 0
-  hitColliders: []
 --- !u!208 &-4116117255931792660
 NavMeshObstacle:
   m_ObjectHideFlags: 0

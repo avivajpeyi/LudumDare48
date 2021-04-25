@@ -21,6 +21,9 @@ public class EnemyFollow : MonoBehaviour
 
     [SerializeField] private EnemyMovementStates currentState;
     private EnemySight mySight;
+    private PauseHandler myPause;
+
+    private EnemyHealth enemyHealth;
 
     void OnDrawGizmos()
     {
@@ -36,6 +39,8 @@ public class EnemyFollow : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         nav = GetComponent<NavMeshAgent>();
         mySight = GetComponent<EnemySight>();
+        myPause = GetComponent<PauseHandler>();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
 
@@ -44,7 +49,7 @@ public class EnemyFollow : MonoBehaviour
         float dist = Vector3.Distance(player.transform.position, transform.position);
 
         currentState = EnemyMovementStates.JustRight;
-        if (mySight.playerVisible)
+        if (mySight.playerVisible && !enemyHealth.isDead)
         {
             if (dist > stoppingDist)
             {
@@ -63,9 +68,12 @@ public class EnemyFollow : MonoBehaviour
 
     void Update()
     {
-        UpdateState();
-        AdjustMovement();
-        CorrectDistances();
+        if (!myPause.isPaused && player != null)
+        {
+            UpdateState();
+            AdjustMovement();
+            CorrectDistances();
+        }
     }
 
 
