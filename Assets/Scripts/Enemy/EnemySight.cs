@@ -13,7 +13,7 @@ public class EnemySight : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        if (player != null)
+        if (player != null && playerVisible)
             Gizmos.DrawLine(transform.position, player.transform.position);
     }
 
@@ -30,13 +30,18 @@ public class EnemySight : MonoBehaviour
 
     bool PlayerIsVisible()
     {
-        Transform target = player.transform;
-        Vector3 dirToTarget = (target.position - transform.position).normalized;
-        float dstToTarget = Vector3.Distance(transform.position, target.position);
-        if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+        if (player != null)
         {
-            return true;
+            Transform target = player.transform;
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
+            float dstToTarget = Vector3.Distance(transform.position, target.position);
+            if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget,
+                obstacleMask))
+            {
+                return true;
+            }
         }
+
 
         return false;
     }

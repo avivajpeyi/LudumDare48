@@ -8,26 +8,32 @@ public class EnemyShoot : MonoBehaviour
     public float shotEveryNseconds = 2;
     public GameObject projectile;
     private EnemySight mySight;
-
+    private EnemyHealth enemyHealth;
     public bool shootOnlyIfEnemyVisible = true;
 
+    private PauseHandler myPause;
 
     void Start()
     {
         mySight = GetComponent<EnemySight>();
+        myPause = GetComponent<PauseHandler>();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (shootOnlyIfEnemyVisible)
+        if (!myPause.isPaused && !enemyHealth.isDead)
         {
-            if (mySight.playerVisible)
+            if (shootOnlyIfEnemyVisible)
+            {
+                if (mySight.playerVisible)
+                    Shoot();
+            }
+            else
+            {
                 Shoot();
-        }
-        else
-        {
-            Shoot();
+            }
         }
     }
 

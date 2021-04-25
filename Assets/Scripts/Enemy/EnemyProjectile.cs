@@ -14,8 +14,9 @@ public class EnemyProjectile : MonoBehaviour
     public bool aimAtPlayer = true;
     public bool isHoming = false;
 
+    public ParticleSystem bulletFx;
 
-    Transform player;
+    GameObject player;
     private ThirdPersonHealth plyaerHealth;
     private ThirdPersonDash playerDash;
     Vector3 target;
@@ -23,14 +24,14 @@ public class EnemyProjectile : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
             plyaerHealth = player.GetComponent<ThirdPersonHealth>();
             playerDash = player.GetComponent<ThirdPersonDash>();
         }
         if (aimAtPlayer)
-            target = player.position;
+            target = player.transform.position;
         else
             target = transform.root.position + transform.root.forward * 100;
 
@@ -41,7 +42,7 @@ public class EnemyProjectile : MonoBehaviour
     void Update()
     {
         if (isHoming)
-            target = player.position;
+            target = player.transform.position;
 
         this.transform.position = Vector3.MoveTowards(
             transform.position,
@@ -72,6 +73,7 @@ public class EnemyProjectile : MonoBehaviour
 
     void DestroyProjectile()
     {
+        Instantiate(bulletFx, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

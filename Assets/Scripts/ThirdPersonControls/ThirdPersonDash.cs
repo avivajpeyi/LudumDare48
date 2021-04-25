@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,13 @@ public class ThirdPersonDash : MonoBehaviour
     public float dashSpeed = 20.0f;
     public float dashTime = 0.25f;
     public bool isDashing;
-    
+
+    public float EnergyLeft = 100;
+    public float EnergyUsage = 8;
+
+
+    public RectTransform DashBar;
+
     private ThirdPersonMovement MovementController;
 
     // Start is called before the first frame update
@@ -22,16 +29,24 @@ public class ThirdPersonDash : MonoBehaviour
     void Update()
     {
         // Dash Handler
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.LeftShift) ||
+            Input.GetKeyDown(KeyCode.RightShift))
         {
-            StartCoroutine(Dash());
+            if (EnergyLeft > EnergyUsage * 3 && !isDashing)
+            {
+                EnergyLeft -= EnergyUsage * 3;
+                StartCoroutine(Dash());
+            }
         }
+
+        RechargeEnergyUsage();
+        AnimateDashBar();
     }
 
     IEnumerator Dash()
     {
         float startTime = Time.time;
-        Debug.Log("Start Dash @" + startTime );
+        Debug.Log("Start Dash @" + startTime);
         while (Time.time < startTime + dashTime)
         {
             // TODO: dash animation
@@ -40,7 +55,37 @@ public class ThirdPersonDash : MonoBehaviour
                 MovementController.moveDir * dashSpeed * Time.deltaTime);
             yield return null;
         }
+
         isDashing = false;
-        Debug.Log("Complete Dash @" + Time.time );
+        Debug.Log("Complete Dash @" + Time.time);
+    }
+
+
+    void AnimateDashBar()
+    {
+        if (DashBar != null)
+        {
+            DashBar.sizeDelta = Lerp(
+                DashBar.sizeDelta,
+                new Vector2(EnergyLeft - .5f, DashBar.sizeDelta.y), 
+                Time.deltaTime * 6f
+                );
+        }
+    }
+
+    Vector2 Lerp(Vector2 a, Vector2 b, float d)
+    {
+        return new Vector2(Mathf.Lerp(a.x, b.x, d), Mathf.Lerp(b.x, b.y, d));
+    }
+
+    void RechargeEnergyUsage()
+    {
+        EnergyLeft += Time.deltaTime * EnergyUsage * .5f;
+        EnergyLeft = Mathf.Clamp(EnergyLeft, 0, 100);
+    }
+
+    public void ResetDash()
+    {
+        EnergyLeft = 100;
     }
 }
