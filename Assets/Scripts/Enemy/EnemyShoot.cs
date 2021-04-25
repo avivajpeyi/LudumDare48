@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-    <<<<<<< HEAD
 
 public class EnemyShoot : MonoBehaviour
 {
@@ -13,12 +12,8 @@ public class EnemyShoot : MonoBehaviour
     public bool shootOnlyIfEnemyVisible = true;
 
 
-    Transform player;
-
-
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         mySight = GetComponent<EnemySight>();
     }
 
