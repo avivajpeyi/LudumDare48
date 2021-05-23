@@ -12,7 +12,8 @@ public class ThirdPersonDash : MonoBehaviour
     public bool isDashing;
 
     public float EnergyLeft = 100;
-    public float EnergyUsage = 8;
+    public float EnergyUsage = 30;
+    public float EnergyRechargePerDeltaT = 5;
 
 
     public RectTransform DashBar;
@@ -32,9 +33,9 @@ public class ThirdPersonDash : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.LeftShift) ||
             Input.GetKeyDown(KeyCode.RightShift))
         {
-            if (EnergyLeft > EnergyUsage * 3 && !isDashing)
+            if (EnergyLeft > EnergyUsage  && !isDashing)
             {
-                EnergyLeft -= EnergyUsage * 3;
+                EnergyLeft -= EnergyUsage;
                 StartCoroutine(Dash());
             }
         }
@@ -80,7 +81,7 @@ public class ThirdPersonDash : MonoBehaviour
 
     void RechargeEnergyUsage()
     {
-        EnergyLeft += Time.deltaTime * EnergyUsage * .5f;
+        EnergyLeft += Time.deltaTime * EnergyRechargePerDeltaT;
         EnergyLeft = Mathf.Clamp(EnergyLeft, 0, 100);
     }
 
