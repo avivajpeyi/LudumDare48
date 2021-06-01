@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+[RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Click3DCursor))]
 public class ClickController : MonoBehaviour
@@ -37,6 +38,8 @@ public class ClickController : MonoBehaviour
     [SerializeField] private bool _canMove;
     [SerializeField] public bool isDashing = false;
 
+    private PlayerController _controller;
+    
     void Start()
     {
         _body = GetComponent<Rigidbody>();
@@ -47,6 +50,7 @@ public class ClickController : MonoBehaviour
         _trail = GetComponent<TrailRenderer>();
         _arrowHandler.chargeDuration = dashChargeDuration;
         _cursor3d.InitCursor(_groundChecker.transform.position);
+        _controller = GetComponent<PlayerController>();
     }
 
 
@@ -158,5 +162,21 @@ public class ClickController : MonoBehaviour
                 StartCoroutine(Dash());
             }
         }
+
+        _controller.isDashing = isDashing;
     }
+    
+    private void OnDestroy ()
+    {
+        Cursor.visible = true;
+        if (_groundChecker.gameObject != null)
+        {
+            Destroy(_groundChecker.gameObject);
+            Destroy(_cursor3d.placedTarget);
+            Destroy(_cursor3d.hoverTarget);
+        }
+        
+    }
+
+    
 }

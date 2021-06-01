@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThirdPersonHealth : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private float myHealth = 50;
-    public bool isDeaad = false;
-
+    public bool isDead = false;
+    public bool isDashing = false;
+    
     public ParticleSystem DeathFx;
     
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class ThirdPersonHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (myHealth < 0 && !isDeaad)
+        if (myHealth < 0 && !isDead)
         {
             Die();
         }
@@ -35,7 +36,7 @@ public class ThirdPersonHealth : MonoBehaviour
     void Die()
     {
         Debug.Log(name + " has died");
-        isDeaad = true;
+        isDead = true;
         // TODO: death anim
         FindObjectOfType<GameController>().BroadcastMessage("PlayerDied");
         Destroy(gameObject);

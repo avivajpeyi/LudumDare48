@@ -19,6 +19,7 @@ public class ThirdPersonDash : MonoBehaviour
     public RectTransform DashBar;
 
     private ThirdPersonMovement MovementController;
+    private PlayerController _controller;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,7 @@ public class ThirdPersonDash : MonoBehaviour
 
         RechargeEnergyUsage();
         AnimateDashBar();
+        _controller.isDashing = isDashing;
     }
 
     IEnumerator Dash()

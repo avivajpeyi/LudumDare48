@@ -36,9 +36,9 @@ public class GroundChecker : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(
-            _parent.position.x,
-            _parent.position.y - _ydisp,
-            _parent.position.z
-        );
+                _parent.position.x,
+                _parent.position.y - _ydisp,
+                _parent.position.z
+            );
     }
 }

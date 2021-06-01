@@ -8,9 +8,7 @@ using UnityEngine.AI;
 public class EnemyHealth : MonoBehaviour
 {
     Transform player;
-    // TODO: Get rid of references to ThirdPersonHealth, ThirdPersonDash
-    private ThirdPersonDash playerDash;
-    private ThirdPersonHealth playerHealth;
+    private PlayerController playerController;
     NavMeshAgent nav;
     public bool isDead=false;
 
@@ -22,8 +20,7 @@ public class EnemyHealth : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         if (player != null)
         {
-            playerHealth = player.GetComponent<ThirdPersonHealth>();
-            playerDash = player.GetComponent<ThirdPersonDash>();
+            playerController = player.GetComponent<PlayerController>();
         }
     }
 
@@ -32,11 +29,11 @@ public class EnemyHealth : MonoBehaviour
     {
         if (other.transform == player)
         {
-            if (playerDash.isDashing)
+            if (playerController.isDashing)
                 Die();
             else
             {
-                playerHealth.TakeDamage(20.0f);
+                playerController.TakeDamage(20.0f);
             }
         }
     }

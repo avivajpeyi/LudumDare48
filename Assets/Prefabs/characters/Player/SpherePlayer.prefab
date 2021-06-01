@@ -275,7 +275,7 @@ TrailRenderer:
     alignment: 0
     textureMode: 1
     shadowBias: 0.5
-    generateLightingData: 0
+    generateLightingData: 1
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
@@ -291,7 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c7c4e1bc5d44609a6a3b0c9f6e6eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDeaad: 0
+  isDead: 0
+  isDashing: 0
   DeathFx: {fileID: 1879464666513266866, guid: a7247f24709e047f6aa1c8552e407c67, type: 3}
 --- !u!114 &2003927909813969220
 MonoBehaviour:
@@ -642,7 +643,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 197619057, guid: fbe7c96d790414df79296726b86da837, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fbe7c96d790414df79296726b86da837, type: 3}
 --- !u!1 &1082824599297039923 stripped
 GameObject:
