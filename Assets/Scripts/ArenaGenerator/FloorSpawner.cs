@@ -138,6 +138,7 @@ public class FloorSpawner : MonoBehaviour
 
         // Unpase gameplay
         newFloorMaster.PauseEnemies(false);
+        // TODO: Get rid of third person reference
         Player.GetComponent<PauseHandler>().isPaused = false;
         Player.GetComponent<ThirdPersonHealth>().ResetHealth();
         Player.GetComponent<ThirdPersonDash>().ResetDash();

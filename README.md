@@ -35,8 +35,8 @@ The main target platform is WebGL.
 ### Character FX
 - [ ] Movement shear
 - [ ] Dash arrow (for direction of dash)
-- [ ] Dash effect
-- [ ] Die Effect
+- [x] Dash effect
+- [x]] Die Effect
 
 ### Enemy
 - [x] Shatter on collision with player
@@ -44,22 +44,30 @@ The main target platform is WebGL.
 
 ### Arena
 - [x] Generate Arena, obstacles, enemies
-- [ ] Area transition animation
+- [x] Area transition animation
 
 ### Game
-- [ ] create round controller
-- [ ] keep score
-- [ ] restart option
+- [x] create round controller
+- [x] keep score
+- [x] restart option
 
 ### UI 
-- [ ] Dash effect cool-down bar
-- [ ] Game Start Scene
+- [x] Dash effect cool-down bar
+- [x] Game Start Scene
 - [ ] Instructions
-- [ ] Depth Count
-- [ ] Home Button 
+- [x] Depth Count
+- [x] Home Button 
 
 ## Future 
 
 * Boss every 5 levels
 * ML enemy 
 * enemy variation
+
+
+
+## AI GameJam todo:
+- [ ] Click-Roll ball player
+- [ ] Three Rules of Robotics intro
+- [ ] Improve Visuals
+

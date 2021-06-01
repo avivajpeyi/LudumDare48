@@ -17,6 +17,7 @@ public class EnemyProjectile : MonoBehaviour
     public ParticleSystem bulletFx;
 
     GameObject player;
+    // TODO: Get rid of references to ThirdPersonHealth, ThirdPersonDash 
     private ThirdPersonHealth plyaerHealth;
     private ThirdPersonDash playerDash;
     Vector3 target;

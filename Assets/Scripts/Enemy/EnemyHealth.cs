@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class EnemyHealth : MonoBehaviour
 {
     Transform player;
+    // TODO: Get rid of references to ThirdPersonHealth, ThirdPersonDash
     private ThirdPersonDash playerDash;
     private ThirdPersonHealth playerHealth;
     NavMeshAgent nav;
