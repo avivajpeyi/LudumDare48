@@ -18,8 +18,7 @@ public class EnemyProjectile : MonoBehaviour
 
     GameObject player;
     // TODO: Get rid of references to ThirdPersonHealth, ThirdPersonDash 
-    private ThirdPersonHealth plyaerHealth;
-    private ThirdPersonDash playerDash;
+    private PlayerController playerController;
     Vector3 target;
 
 
@@ -28,8 +27,7 @@ public class EnemyProjectile : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
-            plyaerHealth = player.GetComponent<ThirdPersonHealth>();
-            playerDash = player.GetComponent<ThirdPersonDash>();
+            playerController = player.GetComponent<PlayerController>();
         }
         if (aimAtPlayer)
             target = player.transform.position;
@@ -43,7 +41,10 @@ public class EnemyProjectile : MonoBehaviour
     void Update()
     {
         if (isHoming)
-            target = player.transform.position;
+        {    
+            if (!playerController.isDead)
+                target = player.transform.position;
+        }
 
         this.transform.position = Vector3.MoveTowards(
             transform.position,
@@ -59,9 +60,9 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (!playerDash.isDashing)
+            if (!playerController.isDashing)
             {
-                plyaerHealth.TakeDamage(damageAmount);
+                playerController.TakeDamage(damageAmount);
             }
 
             DestroyProjectile();

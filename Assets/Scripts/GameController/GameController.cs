@@ -18,7 +18,8 @@ public class GameController : MonoBehaviour
     private bool haveNotGoneToNextFloor = true;
 
     public bool readyToStart = false;
-    
+
+    public float timeToStart = 2.8f; 
     
 
     // Start is called before the first frame update
@@ -30,7 +31,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator StartSequence()
     {
-        yield return new WaitForSeconds(2.8F);
+        yield return new WaitForSeconds(timeToStart);
         readyToStart = true;
     }
 

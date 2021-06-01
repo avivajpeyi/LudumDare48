@@ -80,7 +80,8 @@ public class FloorSpawner : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
-        if (trans!= null)
+
+        if (trans != null)
             trans.position = targetPosition;
     }
 
@@ -138,16 +139,18 @@ public class FloorSpawner : MonoBehaviour
 
         // Unpase gameplay
         newFloorMaster.PauseEnemies(false);
-        // TODO: Get rid of third person reference
         Player.GetComponent<PauseHandler>().isPaused = false;
-        Player.GetComponent<ThirdPersonHealth>().ResetHealth();
-        Player.GetComponent<ThirdPersonDash>().ResetDash();
+        Player.GetComponent<PlayerController>().ResetHealth();
+
+        ThirdPersonDash d = Player.GetComponent<ThirdPersonDash>();
+        if (d != null)
+            d.ResetDash();
 
         // change references and cleanup
         currentFloor = nextFloor;
         nextFloor = null;
         floorsMoving = false;
         Destroy(oldFloor);
-        Debug.Log("Floor number "+floorCount);
+        Debug.Log("Floor number " + floorCount);
     }
 }
