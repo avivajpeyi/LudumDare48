@@ -98,12 +98,7 @@ public class FloorSpawner : MonoBehaviour
         GameObject floor =
             Instantiate(FloorPrefab, position: location, Quaternion.identity);
         FloorMaster floorMaster = floor.GetComponentInChildren<FloorMaster>();
-        if (floorCount > 0)
-        {
-            floorMaster.SpawnFloorContent(firstFloor: false);
-        }
-        else
-            floorMaster.SpawnFloorContent(firstFloor: true);
+        floorMaster.SpawnFloorContent(floorCount);
 
         return floor;
     }

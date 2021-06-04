@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GameScenes/StartScene.unity
-    guid: e02b4af9898064d098f95526a0e9f970
+    path: Assets/Scenes/GameScenes/asimovStart.unity
+    guid: 6eb0ebde44b2241af9790f2def3feb6d
   - enabled: 1
     path: Assets/Scenes/GameScenes/Game.unity
     guid: 082c413e0afce44c2a26d4d87bfc29d9
+  - enabled: 0
+    path: Assets/Scenes/GameScenes/StartScene.unity
+    guid: e02b4af9898064d098f95526a0e9f970
   m_configObjects: {}

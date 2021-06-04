@@ -32,11 +32,13 @@ public class ClickController : MonoBehaviour
     private Vector3 targetLocation = Vector3.zero;
     private Vector3 rollDir = Vector3.zero;
 
-    private bool targetSet = false;
+    public float cameraShakeAmount = 0.75f;
+    public bool targetSet = false;
 
-    [Header("Checks")] [SerializeField] private bool _canDash;
+    [Header("Checks")] [SerializeField] public bool _canDash;
     [SerializeField] private bool _canMove;
     [SerializeField] public bool isDashing = false;
+    [SerializeField] public bool isCharging = false;
 
     private PlayerController _controller;
     
@@ -95,7 +97,7 @@ public class ClickController : MonoBehaviour
         // Dash initialisation
         isDashing = true;
         _trail.time = 1;
-        CameraShake.Shake(0.1f, 0.2f);
+        CameraShake.Shake(0.1f, cameraShakeAmount);
         _body.drag = 0;
         _body.useGravity = false;
         _body.constraints = RigidbodyConstraints.FreezePositionY;
@@ -107,13 +109,13 @@ public class ClickController : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
         ResetRigidBody();
         isDashing = false;
-        _trail.DOTime(endValue: 0.1f, duration: 1f);
+        _trail.DOTime(endValue: 0.0f, duration: 1f);
     }
 
 
     bool CanDashCheck()
     {
-        return (_arrowHandler.reachedMaxScale && !isDashing);
+        return (_arrowHandler.reachedMaxScale && !isDashing && isCharging);
     }
 
 
@@ -146,6 +148,7 @@ public class ClickController : MonoBehaviour
         {
             if (_canMove)
             {
+                isCharging = true;
                 UpdateArrowDirection();
                 Move();
             }
@@ -157,6 +160,7 @@ public class ClickController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            isCharging = false;
             if (_canDash)
             {
                 StartCoroutine(Dash());
@@ -169,7 +173,7 @@ public class ClickController : MonoBehaviour
     private void OnDestroy ()
     {
         Cursor.visible = true;
-        if (_groundChecker.gameObject != null)
+        if (_groundChecker != null)
         {
             Destroy(_groundChecker.gameObject);
             Destroy(_cursor3d.placedTarget);
@@ -178,5 +182,5 @@ public class ClickController : MonoBehaviour
         
     }
 
-    
+
 }

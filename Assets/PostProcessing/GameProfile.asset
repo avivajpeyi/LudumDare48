@@ -21,13 +21,13 @@ MonoBehaviour:
     value: 0
   intensity:
     overrideState: 1
-    value: 0.113
+    value: 0.022
   size:
     overrideState: 1
-    value: 0.785
+    value: 0.41
   lumContrib:
     overrideState: 1
-    value: 0.097
+    value: 0.036
 --- !u!114 &-7428527791932073069
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -49,7 +49,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.69
+    value: 0.2
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -67,7 +67,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 3.81
+    value: 2.17
   directLightingStrength:
     overrideState: 1
     value: 0
@@ -104,13 +104,13 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.325
+    value: 0.037
   smoothness:
     overrideState: 1
-    value: 0.416
+    value: 0.652
   roundness:
     overrideState: 1
-    value: 0.637
+    value: 0.164
   rounded:
     overrideState: 1
     value: 1
@@ -139,7 +139,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: -1
+    value: -0.1
   intensityX:
     overrideState: 0
     value: 1
@@ -176,10 +176,10 @@ MonoBehaviour:
     value: 5.92
   aperture:
     overrideState: 1
-    value: 5.7
+    value: 9.5
   focalLength:
     overrideState: 1
-    value: 18
+    value: 27
   kernelSize:
     overrideState: 0
     value: 1
@@ -222,22 +222,22 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 6.83
+    value: 2.39
   threshold:
     overrideState: 1
-    value: 0.5
+    value: 0
   softKnee:
     overrideState: 1
-    value: 0.094
+    value: 0.082
   clamp:
     overrideState: 1
     value: 65472
   diffusion:
     overrideState: 1
-    value: 1.73
+    value: 2.33
   anamorphicRatio:
     overrideState: 1
-    value: -0.28
+    value: -0.4
   color:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -273,7 +273,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.362
+    value: 0.192
   fastMode:
     overrideState: 0
     value: 0
