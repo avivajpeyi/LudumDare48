@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -42,7 +43,13 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log(name + " has died ");
         isDead = true;
-        this.GetComponent<Renderer>().enabled = false;
+        Renderer[] myRenders = GetComponentsInChildren<Renderer>();
+        myRenders.Append(this.GetComponent<Renderer>());
+        foreach (var r in myRenders )
+        {
+            r.enabled = false;
+        }
+        
         this.GetComponent<Collider>().enabled = false;
 //        Destroy(gameObject);
         Instantiate(DeathfX, transform.position, Quaternion.identity);

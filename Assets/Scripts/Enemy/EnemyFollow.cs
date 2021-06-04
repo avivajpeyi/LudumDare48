@@ -25,13 +25,8 @@ public class EnemyFollow : MonoBehaviour
 
     private EnemyHealth enemyHealth;
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = new Color(r: 10, 0, 0, 0.5f);
-        Gizmos.DrawSphere(this.transform.position, stoppingDist);
-        Gizmos.color = new Color(r: 00, 10, 0, 0.5f);
-        Gizmos.DrawSphere(this.transform.position, retreatDist);
-    }
+    private Animator anim;
+
 
 
     void Start()
@@ -41,6 +36,7 @@ public class EnemyFollow : MonoBehaviour
         mySight = GetComponent<EnemySight>();
         myPause = GetComponent<PauseHandler>();
         enemyHealth = GetComponent<EnemyHealth>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -99,5 +95,8 @@ public class EnemyFollow : MonoBehaviour
             Vector3 newPos = transform.position + dirToPlayer;
             nav.SetDestination(newPos);
         }
+        
+        if (anim!=null)
+            anim.SetFloat("Walk", nav.velocity.magnitude);
     }
 }

@@ -778,7 +778,7 @@ PrefabInstance:
     - target: {fileID: 2918575422340407163, guid: db1940bb2d74e43279ce01d9997ebf99,
         type: 3}
       propertyPath: m_Name
-      value: Ground
+      value: FloorMaster
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db1940bb2d74e43279ce01d9997ebf99, type: 3}

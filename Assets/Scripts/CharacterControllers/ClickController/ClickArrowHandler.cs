@@ -12,6 +12,7 @@ public class ClickArrowHandler : MonoBehaviour
     public bool testing = false;
     public Vector3 target;
 
+    
     public bool reachedMaxScale = false;
     private Tweener colorTween;
     private Coroutine scaleLerp;
@@ -23,7 +24,9 @@ public class ClickArrowHandler : MonoBehaviour
     {
         cam = FindObjectOfType<Camera>();
         myRenderer = GetComponentInChildren<Renderer>();
-        colorTween = myRenderer.material.DOColor(Color.yellow, flashDuration)
+        
+        
+        colorTween = myRenderer.material.DOColor(Color.cyan, flashDuration)
             .SetLoops(-1, LoopType.Yoyo);
         Reset();
     }

@@ -16,7 +16,7 @@ using Random = UnityEngine.Random;
 public class FloorMaster : MonoBehaviour
 {
     public GameObject[] PremadeFloorContentList;
-
+    public int indexOfEasy;
 
     private NavMeshSurface nav;
 
@@ -34,10 +34,12 @@ public class FloorMaster : MonoBehaviour
     }
 
 
-    public void SpawnFloorContent(bool firstFloor)
+    public void SpawnFloorContent(int floorCount)
     {
-        if (firstFloor)
+        if (floorCount==0)
             contentIndex = 0;
+        else if (floorCount < 5)
+            contentIndex = Random.Range(1, indexOfEasy);
         else
             contentIndex = Random.Range(1, PremadeFloorContentList.Length);
 

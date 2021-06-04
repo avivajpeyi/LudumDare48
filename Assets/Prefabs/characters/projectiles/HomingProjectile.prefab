@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLifetime: 7.5
-  speed: 6
+  speed: 4
   damageAmount: 20
   aimAtPlayer: 1
   isHoming: 1
