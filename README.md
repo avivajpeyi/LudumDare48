@@ -1,8 +1,10 @@
 ![Build 🧱](https://github.com/avivajpeyi/LudumDare48/workflows/Build%20%F0%9F%A7%B1/badge.svg?branch=master)
 
+## HACKATHONS:
+* Ludum Dare 48: Deeper and deeper
+* AI and Game Jam: Breaking the rules
 
-# Ludum Dare 48
-**Theme**: Deeper and Deeper
+
 In this game, the player has to destroy enemies by dashing into them. After destroyong all enemies in one arena, the arena gets shattered and the player is sent down to the next arena. Score is kept by time spent and the arena-depth.
 
 ###  [Gameplay Video]()
@@ -30,13 +32,13 @@ The main target platform is WebGL.
 ### Character Controller
 - [x] Move with keys 
 - [x] Dash
-- [ ] Wall bounce
+- [x] Wall bounce
 
 ### Character FX
 - [ ] Movement shear
-- [ ] Dash arrow (for direction of dash)
+- [x] Dash arrow (for direction of dash)
 - [x] Dash effect
-- [x]] Die Effect
+- [x] Die Effect
 
 ### Enemy
 - [x] Shatter on collision with player
@@ -54,7 +56,7 @@ The main target platform is WebGL.
 ### UI 
 - [x] Dash effect cool-down bar
 - [x] Game Start Scene
-- [ ] Instructions
+- [x] Instructions
 - [x] Depth Count
 - [x] Home Button 
 
@@ -67,7 +69,7 @@ The main target platform is WebGL.
 
 
 ## AI GameJam todo:
-- [ ] Click-Roll ball player
-- [ ] Three Rules of Robotics intro
-- [ ] Improve Visuals
+- [x] Click-Roll ball player
+- [x] Three Rules of Robotics intro
+- [x] Improve Visuals
 
