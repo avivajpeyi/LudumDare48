@@ -23,7 +23,7 @@ public class ClickHardStop : MonoBehaviour
             if (!playerClickController.isDashing)
             {
                 playerRb.velocity = Vector3.zero;
-                Debug.Log("Force stop");
+                //Debug.Log("Force stop");
                 originalDrag = playerRb.drag;
                 playerRb.drag = 1000;
             }

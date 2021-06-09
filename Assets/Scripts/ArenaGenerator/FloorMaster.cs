@@ -51,8 +51,7 @@ public class FloorMaster : MonoBehaviour
             Quaternion.identity,
             transform.root
         );
-        Debug.Log("Generating floor " + PremadeFloorContentList[contentIndex].name
-                                      + "; content id = " + contentIndex);
+
         foreach (Transform child in floorContent.transform)
         {
             if (child.CompareTag("Enemy"))

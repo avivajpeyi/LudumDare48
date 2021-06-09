@@ -49,7 +49,7 @@ public class ThirdPersonDash : MonoBehaviour
     IEnumerator Dash()
     {
         float startTime = Time.time;
-        Debug.Log("Start Dash @" + startTime);
+        //Debug.Log("Start Dash @" + startTime);
         while (Time.time < startTime + dashTime)
         {
             // TODO: dash animation
@@ -60,7 +60,7 @@ public class ThirdPersonDash : MonoBehaviour
         }
 
         isDashing = false;
-        Debug.Log("Complete Dash @" + Time.time);
+        //Debug.Log("Complete Dash @" + Time.time);
     }
 
 

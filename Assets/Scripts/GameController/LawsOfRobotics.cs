@@ -67,7 +67,7 @@ public class LawsOfRobotics : MonoBehaviour
     {
         if (LawContainers.Length != lawContentStrings.Length)
         {
-            Debug.LogError("There must be 1 textbox for each laws");
+            //Debug.LogError("There must be 1 textbox for each laws");
         }
 
         for (int i = 0; i < LawContainers.Length; i++)
@@ -116,7 +116,7 @@ public class LawsOfRobotics : MonoBehaviour
 
     IEnumerator StartLevelChange()
     {
-        Debug.Log("Begin level fade");
+        //Debug.Log("Begin level fade");
         _fader.BeginFade(fadeLevelOut);
         yield return new WaitForSeconds(fadeLevelOut);
         SceneManager.LoadScene("Game");
