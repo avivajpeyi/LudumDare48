@@ -116,7 +116,6 @@ public class LawsOfRobotics : MonoBehaviour
 
     IEnumerator StartLevelChange()
     {
-        //Debug.Log("Begin level fade");
         _fader.BeginFade(fadeLevelOut);
         yield return new WaitForSeconds(fadeLevelOut);
         SceneManager.LoadScene("Game");
