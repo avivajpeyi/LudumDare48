@@ -19,7 +19,7 @@ public class Click3DCursor : MonoBehaviour
         GroundLayerIndex = LayerMask.NameToLayer("Floor");
         if (GroundLayerIndex == -1)
         {
-            Debug.LogError("Ground Layer Does not exist");
+            //Debug.LogError("Ground Layer Does not exist");
         }
         cam = FindObjectOfType<Camera>();
         placedTarget.transform.parent = null;

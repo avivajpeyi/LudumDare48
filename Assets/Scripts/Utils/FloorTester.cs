@@ -27,6 +27,6 @@ public class FloorTester : MonoBehaviour
 
         NavMeshSurface nav = FindObjectOfType<NavMeshSurface>();
         nav.BuildNavMesh();
-        Debug.Log("Test setup complete");
+        //Debug.Log("Test setup complete");
     }
 }

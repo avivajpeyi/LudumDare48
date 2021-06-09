@@ -41,7 +41,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(name + " has died ");
+        //Debug.Log(name + " has died ");
         isDead = true;
         Renderer[] myRenders = GetComponentsInChildren<Renderer>();
         myRenders.Append(this.GetComponent<Renderer>());

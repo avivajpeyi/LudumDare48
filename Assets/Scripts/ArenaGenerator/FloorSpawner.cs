@@ -68,7 +68,7 @@ public class FloorSpawner : MonoBehaviour
 
     IEnumerator LerpPosition(Transform trans, Vector3 targetPosition, float duration)
     {
-        Debug.Log(trans.name + " is lerping!");
+        //Debug.Log(trans.name + " is lerping!");
         float time = 0;
         Vector3 startPosition = trans.position;
 
@@ -146,6 +146,6 @@ public class FloorSpawner : MonoBehaviour
         nextFloor = null;
         floorsMoving = false;
         Destroy(oldFloor);
-        Debug.Log("Floor number " + floorCount);
+        //Debug.Log("Floor number " + floorCount);
     }
 }

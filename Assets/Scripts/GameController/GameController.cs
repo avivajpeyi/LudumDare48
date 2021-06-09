@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
                 FloorSpawner.GenerateNextFloor();
                 FloorText.text = "Floor " + FloorSpawner.floorCount.ToString();
                 FloorTextAnimator.SetTrigger("ZoomText");
-//                Debug.Log("GO TO NEXT FLOOR");
+//                //Debug.Log("GO TO NEXT FLOOR");
             }
         }
     }
@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
 
     public void PlayerDied()
     {
-        Debug.Log("PlayerDied called");
+        //Debug.Log("PlayerDied called");
         GameOverAnimator.SetTrigger("GameOver");
         Cursor.lockState = CursorLockMode.None;
         ScoreText.text = "Floors Descended: " + FloorSpawner.floorCount.ToString(); 
@@ -75,13 +75,13 @@ public class GameController : MonoBehaviour
 
     public void Reload()
     {
-        Debug.Log("RELOAD");
+        //Debug.Log("RELOAD");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void GoHome()
     {
-        Debug.Log("GO HOME");
+        //Debug.Log("GO HOME");
         SceneManager.LoadScene("StartScene");
     }
 }

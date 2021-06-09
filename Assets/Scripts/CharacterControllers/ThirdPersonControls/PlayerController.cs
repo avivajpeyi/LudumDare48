@@ -28,14 +28,14 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float amount)
     {
         myHealth -= amount;
-        Debug.Log(name + " health down to " + myHealth);
+        //Debug.Log(name + " health down to " + myHealth);
         // TODO: Play damage anim (flash mesh) 
         Instantiate(DeathFx, transform.position, Quaternion.identity);
     }
 
     void Die()
     {
-        Debug.Log(name + " has died");
+        //Debug.Log(name + " has died");
         isDead = true;
         // TODO: death anim
         FindObjectOfType<GameController>().BroadcastMessage("PlayerDied");
